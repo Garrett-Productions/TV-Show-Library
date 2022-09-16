@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/style.css') }}">
+    <title>Shows</title>
+</head>
+<body>
+    <div class="d-flex justify-content-around align-items-center">
+        <h2 class="mx-2 p-1"> Welcome {{user.first_name}} </h2><br></br>
+        <a href="/shows">Back to All Shows</a> 
+        <a href="/logout">Logout</a>
+    </div><br></br>
+    <div class="d-flex justify-content-around align-items-center">
+        <h2 class="m-2 p-1"> {{ one_show.title }} </h2>
+    </div><br>
+    <form action='/' method="post" class="p-3 col-6 mx-auto my-5 bg-dark text-light">
+    <div class="form-group">
+        <label for="network">Network: </label>
+        <input type="text" name="network" value="{{ one_show.network }}" id="network" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="release_date">Release Date: </label>
+        <input type="text" name="release_date" value="{{ one_show.release_date }}" id="release_date" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="description">Description: </label>
+        <input type="text" name="description" value="{{ one_show.description }}" id="description" class="form-control">
+    </div>
+    <h3> Posted By: {{one_show.creator.first_name}} {{one_show.creator.last_name}} </h3> 
+</body>
+</html>
